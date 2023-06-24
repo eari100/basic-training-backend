@@ -9,7 +9,7 @@ data class Todo(
     val id: Long,
 
     @Column(nullable = false)
-    val item: String,
+    var item: String,
 ) {
     constructor() : this(0, "")
 }
