@@ -22,4 +22,23 @@ class TodoRepositoryTest {
         // Then
         assertEquals("밥먹기", foundTodo?.item)
     }
+
+    @Test
+    fun testUpdateTodo() {
+// Given
+        val todo = Todo(0, "게임하기")
+
+        // When
+        val savedTodo = todoRepository.save(todo)
+        val todoId = savedTodo.id
+        val foundTodo = todoRepository.findById(todoId).orElse(null)
+        foundTodo?.let {
+            it.item = "공부하기"
+            todoRepository.save(it)
+        }
+
+        // Then
+        val updatedTodo = todoRepository.findById(todoId).orElse(null)
+        assertEquals(updatedTodo?.item, "공부하기")
+    }
 }
