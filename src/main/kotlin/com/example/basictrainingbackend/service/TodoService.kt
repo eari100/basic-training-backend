@@ -21,7 +21,7 @@ class TodoService(private val todoRepository: TodoRepository) {
     }
 
     fun saveTodo(saveTodoReqDto: SaveTodoReqDto): Long {
-        val todo = Todo(saveTodoReqDto.id, saveTodoReqDto.item)
+        val todo = Todo(0L, saveTodoReqDto.item)
 
         return todoRepository.save(todo).id
     }
