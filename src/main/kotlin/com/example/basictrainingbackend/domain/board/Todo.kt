@@ -12,4 +12,8 @@ data class Todo(
     var item: String,
 ) {
     constructor() : this(0, "")
+
+    fun update(item: String) {
+        this.item = item
+    }
 }
